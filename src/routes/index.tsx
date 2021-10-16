@@ -1,8 +1,8 @@
 import Loading from "@/components/pages/Loading";
-import { TRoutes } from "@/models";
+import { TRoute } from "@/models/app";
 import loadable from "@loadable/component";
 
-const routes: TRoutes[] = [
+const routes: TRoute[] = [
   {
     name: "home",
     path: "/home",
@@ -21,6 +21,13 @@ const routes: TRoutes[] = [
     name: "about",
     path: "/about",
     component: loadable(() => import("@/components/pages/About"), {
+      fallback: <Loading />,
+    }),
+  },
+  {
+    name: "todos",
+    path: "/todos",
+    component: loadable(() => import("@/components/pages/Todos"), {
       fallback: <Loading />,
     }),
   },

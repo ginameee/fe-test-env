@@ -1,6 +1,6 @@
 import React from "react";
 
-function Loading() {
+function LoadingPage() {
   return (
     <div>
       <h2>Loading...</h2>
@@ -8,4 +8,4 @@ function Loading() {
   );
 }
 
-export default Loading;
+export default LoadingPage;

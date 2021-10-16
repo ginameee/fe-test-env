@@ -1,14 +1,14 @@
 import React from "react";
 import { Route, Switch, Redirect } from "react-router";
-import { TRoutes } from "../../../models";
+import { TRoute } from "@/models/app";
 
 type TProps = {
-  routes: TRoutes[];
+  routes: TRoute[];
   NotFoundPage: any;
 };
 
 const RouterView: React.FC<TProps> = ({ routes, NotFoundPage }) => {
-  const renderRoute = (routes: TRoutes[]) => {
+  const renderRoute = (routes: TRoute[]) => {
     return routes.map((r) => {
       if (!r.children) {
         return <Route key={r.name} path={r.path} component={r.component} />;
