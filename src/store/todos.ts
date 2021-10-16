@@ -1,4 +1,4 @@
-import { TTodo } from "@/models/todo";
+import { TTodo } from "@/models/todos";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type TState = {
