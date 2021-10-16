@@ -4,3 +4,8 @@ export type TTodo = {
   content: string;
   completed: boolean;
 };
+
+export type TTodoFormData = {
+  title: string;
+  content: string;
+};

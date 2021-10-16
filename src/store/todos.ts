@@ -20,6 +20,14 @@ const todosSlice = createSlice({
       const id = action.payload;
       state.list = state.list.filter((todo) => todo.id !== id);
     },
+    toggleComplete: (state: TState, action: PayloadAction<number>) => {
+      const id = action.payload;
+      const selectedTodo = state.list.find((todo) => todo.id === id);
+
+      if (selectedTodo) {
+        selectedTodo.completed = !selectedTodo.completed;
+      }
+    },
   },
 });
 

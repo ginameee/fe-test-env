@@ -6,12 +6,17 @@ import RouterView from "@/components/templates/RouterView";
 import routes from "@/routes";
 import { BrowserRouter } from "react-router-dom";
 import store from "./store";
+import MainTemplate from "./components/templates/Main";
 
 function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <RouterView routes={routes} NotFoundPage={NotFound} />
+        <MainTemplate
+          header={<div>Header</div>}
+          nav={<div>Nav</div>}
+          content={<RouterView routes={routes} NotFoundPage={NotFound} />}
+        />
       </BrowserRouter>
     </Provider>
   );
