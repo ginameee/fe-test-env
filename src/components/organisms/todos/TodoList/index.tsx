@@ -17,9 +17,9 @@ const TodoList: React.FC = () => {
   }, []);
 
   return (
-    <ul>
+    <ul data-testid="todo-list">
       {todosState.list.map((todo: TTodo) => (
-        <li key={todo.id}>
+        <li key={todo.id} data-testid="todo-item">
           <TodoItem
             data={todo}
             onCheck={handleCheckTodo}

@@ -1,11 +1,13 @@
 import { TTodo } from "@/models/todos";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-type TState = {
+export type TState = {
+  nextId: number;
   list: TTodo[];
 };
 
-const getInitialState = (): TState => ({
+export const getInitialState = (): TState => ({
+  nextId: 0,
   list: [],
 });
 
@@ -13,8 +15,18 @@ const todosSlice = createSlice({
   name: "todo",
   initialState: getInitialState(),
   reducers: {
-    add: (state: TState, action: PayloadAction<TTodo>) => {
-      state.list.push(action.payload);
+    add: (
+      state: TState,
+      action: PayloadAction<{ title: string; content: string }>
+    ) => {
+      const { content, title } = action.payload;
+
+      state.list.push({
+        id: state.nextId++,
+        title,
+        content,
+        completed: false,
+      });
     },
     remove: (state: TState, action: PayloadAction<number>) => {
       const id = action.payload;
